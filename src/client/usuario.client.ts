@@ -77,9 +77,10 @@ export class UsuarioClient {
         }
     }
 
-    public async desativar(usuario: Usuario): Promise<void> {
+
+    public async deletar(usuario: Usuario): Promise<void> {
         try {
-            return (await this.axiosClient.put(`/desativar/${usuario.id}`, usuario)).data
+            return (await this.axiosClient.delete(`/${usuario.id}`, usuario)).data
         } catch (error: any) {
             return Promise.reject(error.response)
         }

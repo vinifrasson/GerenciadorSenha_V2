@@ -23,6 +23,7 @@
           <thead>
               <tr>
                   <th style="text-align: center;">ID</th>
+                  <th style="text-align: center;">Senha</th>
                   <th style="text-align: center;">Descrição</th>
                   <th style="text-align: center;">URL</th>
                   <th style="text-align: center;">Opções</th>
@@ -31,10 +32,11 @@
           <tbody>
         <tr v-for="usuario in usuarioList" :key="usuario.id">
           <td>{{ usuario.id }}</td>
+          <td>{{usuario.senha}}</td>
           <td> {{ usuario.descricao }}</td>
           <td> {{ usuario.url }}</td>
           <th>
-            <button @click="onClickPaginaDetalhar(usuario.id)" class="button is-warning"> Detalhar </button>
+            <button @click="onClickPaginaDetalhar(usuario.id)" class="button is-small is-warning is-light"> Detalhar </button>
           </th>
         </tr>
       </tbody>
@@ -48,9 +50,10 @@ import { Vue } from 'vue-class-component';
 
 import { PageRequest } from '@/model/page/page-request'
 import { PageResponse } from '@/model/page/page-response'
-
 import { Usuario } from '@/model/usuario.model'
 import { UsuarioClient } from '@/client/usuario.client'
+
+
 
 export default class UsuarioList extends Vue {
   public pageRequest: PageRequest = new PageRequest()
@@ -138,5 +141,6 @@ tbody tr:hover {
 .btn {
     width: 15rem;
 }
+
 
 </style>
